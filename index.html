@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Light Mode Slider Styles */
+      body.light-mode #slider {
+        background-color: #4fd7aa;
+      }
+      body.light-mode #slider::-webkit-slider-thumb {
+        background-color: #5bd639;
+      }
+      body.light-mode #slider::-webkit-slider-thumb:hover {
+        background-color: #31b085;
+      }
+
+      /* Dark Mode Slider Styles */
+      body.dark-mode #slider {
+        background-color: #60a5fa;
+      }
+      body.dark-mode #slider::-webkit-slider-thumb {
+        background-color: #3b82f6;
+      }
+      body.dark-mode #slider::-webkit-slider-thumb:hover {
+        background-color: #2563eb;
+      }
+
+      /* Common Slider Styles */
+      #slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        outline: none;
+        transition: background-color 0.3s ease;
+      }
+
+      #slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        background-image: url(' /icon-slider.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 2px rgba(0, 106, 111, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      /* Heading Color Based on Mode */
+      body.light-mode h1#mainHeading {
+        color: #f97316; /* orange-500 */
+      }
+      body.dark-mode h1#mainHeading {
+        color: #3b82f6; /* blue-500 */
+      }
+    </style>
+    <title>Pricing Component</title>
+  </head>
+  <body
+    class="flex flex-col justify-center items-center min-h-screen bg-cover bg-center p-4 light-mode"
+    style="background-image: url(' /pattern-randomized.png')"
+  >
+    <button
+      id="darkModeToggle"
+      class="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-md"
+    >
+      <svg
+        id="sun-icon"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+      <svg
+        id="moon-icon"
+        class="h-6 w-6 hidden"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        />
+      </svg>
+    </button>
+
+    <div class="relative text-center space-y-3 mb-8 max-w-xl">
+      <h1
+        id="mainHeading"
+        class="text-2xl font-bold text-gray-800 dark:text-white"
+      >
+        Simple, traffic-based pricing
+      </h1>
+      <h2 class="text-gray-500 dark:text-gray-300">
+        Sign up for 30 day trial. No credit card required.
+      </h2>
+    </div>
+
+    <div
+      class="bg-white dark:bg-gray-800 p-6 px-4 rounded-xl shadow-lg w-full max-w-xl space-y-8 transition-colors duration-300"
+    >
+      <div class="flex flex-col md:flex-row md:justify-between items-center">
+        <div id="pageviews" class="text-gray-400 dark:text-gray-300 text-lg mb-4 md:mb-0">
+          100k Pageviews
+        </div>
+        <div class="flex items-baseline gap-2">
+          <h1 id="price" class="text-2xl font-bold text-gray-800 dark:text-gray-100">$16</h1>
+          <h3 id="billingLabel" class="text-sm text-gray-500 dark:text-gray-300">/month</h3>
+        </div>
+      </div>
+
+      <input
+        type="range"
+        id="slider"
+        min="0"
+        max="4"
+        step="1"
+        class="w-full"
+      />
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-600 dark:text-gray-300 px-2"
+      >
+        <span>Monthly Billing</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="billingToggle" class="sr-only peer" />
+          <div
+            class="w-14 h-8 rounded-full transition-colors dark:bg-gray-400 dark:peer-checked:bg-blue-500 peer-checked:bg-green-500 bg-gray-400"
+          ></div>
+          <div
+            class="absolute left-1 top-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform peer-checked:translate-x-6"
+          ></div>
+        </label>
+        <span>Yearly Billing <strong class="text-orange-500 dark:text-orange-300">25% discount</strong></span>
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center md:justify-between gap-8">
+        <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 text-center md:text-left">
+          <li class="flex gap-2 items-center">
+            <img src=" /icon-check.svg" alt="" /> Unlimited websites
+          </li>
+          <li class="flex gap-2 items-center">
+            <img src=" /icon-check.svg" alt="" /> 100% data ownership
+          </li>
+          <li class="flex gap-2 items-center">
+            <img src=" /icon-check.svg" alt="" /> Email reports
+          </li>
+        </ul>
+        <div class="flex flex-col justify-center items-center mt-4 md:mt-0">
+          <button
+            class="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-500 shadow-lg dark:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+          >
+            Start my trial
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const slider = document.getElementById('slider');
+      const pageviews = document.getElementById('pageviews');
+      const price = document.getElementById('price');
+      const billingToggle = document.getElementById('billingToggle');
+      const billingLabel = document.getElementById('billingLabel');
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      const body = document.body;
+
+      const pricingData = [
+        { views: '10K', price: 8 },
+        { views: '50K', price: 12 },
+        { views: '100K', price: 16 },
+        { views: '500K', price: 24 },
+        { views: '1M', price: 36 },
+      ];
+
+      function updatePricing() {
+        const sliderValue = slider.value;
+        const isYearly = billingToggle.checked;
+
+        const currentPlan = pricingData[sliderValue];
+        let finalPrice = currentPlan.price;
+
+        if (isYearly) {
+          finalPrice = currentPlan.price * 0.75;
+          billingLabel.innerText = '/year';
+        } else {
+          billingLabel.innerText = '/month';
+        }
+
+        pageviews.innerText = `${currentPlan.views} Pageviews`;
+        price.innerText = `$${finalPrice.toFixed(2)}`;
+      }
+
+      function toggleDarkMode() {
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('dark-mode')) {
+          body.style.backgroundImage = "url(' /dark 2.png')";
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else {
+          body.style.backgroundImage = "url(' /pattern-randomized.png')";
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        }
+      }
+
+      slider.addEventListener('input', updatePricing);
+      billingToggle.addEventListener('change', updatePricing);
+      darkModeToggle.addEventListener('click', toggleDarkMode);
+
+      // Initial setup
+      updatePricing();
+      body.classList.add('light-mode');
+    </script>
+  </body>
+</html>

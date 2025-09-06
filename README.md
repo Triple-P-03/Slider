@@ -31,8 +31,8 @@ Users should be able to:
 ![alt text](pricing.png)
 ### 🔗 Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)  
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: (https://github.com/Triple-P-03/Slider)  
+- Live Site URL: (https://pricing-slider-prathmesh.netlify.app/)
 
 ## 🛠️ My Process
 
@@ -58,4 +58,4 @@ I’m actively working on deepening my understanding of Tailwind CSS and JavaScr
 
 ## 🙌 Acknowledgments
 
-Big thanks to my friends Om and Shivam for their encouragement and support throughout this project. Their motivation helped me stay focused and push through the learning curve with confidence.
+Big thanks to my friends Om and Shivam for their encouragement and support throughout this project. Their motivation helped me stay focused and push through the learning curve with confidence.  
